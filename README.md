@@ -1,1 +1,1 @@
-# pkinyanjui-gads-2020-project
+# Kinyanjui's Gads project submission

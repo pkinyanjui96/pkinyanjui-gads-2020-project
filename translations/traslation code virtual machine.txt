@@ -1,0 +1,22 @@
+Creating Virtual Machines 
+# Objectives:
+   . Create a utility virtual machine 
+   . Create a Windows virtual machine 
+   . Create a custom virtual machine 
+
+## steps:
+
+1. Create a utility virtual machine
+ - gcloud compute -- instances create utility-vm --zone=us-central1-c --machine-type=n1-standard-1
+--subnet=default --no-address --image-project=debian-cloud --boot-disk-size=10GB --boot-disk-type=pd-standard 
+--boot-disk-device-name=utility-vm 
+
+2. Create a windows virtual machine
+ -   gcloud compute -- instances create windows-vm --zone=us-west2-a --machine-type=n1-standard-2 --subnet=default --network
+--tags=http-server,https-server --image=windows-server--image-project=windows-cloud --boot-disk-size=100GB
+gcloud compute --firewall-rules create default-allow-http --direction=INGRESS --priority=1000 --network=default 
+--action=ALLOW --rules=tcp:80 --source-ranges=0.0.0.0/0 --target-tags=http-server
+
+3. Create a custom virtual machine
+
+ - gcloud compute -- instances create custom-vm--zone=europe-west1-b --machine-type=e2-custom-6-32768 --subnet=default 
